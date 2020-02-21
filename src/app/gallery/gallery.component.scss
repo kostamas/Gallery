@@ -1,0 +1,79 @@
+@import "../../mixins";
+@import "../../colors";
+
+.gallery-component {
+  @include dimension(100%, 100%);
+
+  .gallery-controls {
+    @include flex(space-between);
+
+    mat-form-field {
+      width: 30%;
+    }
+  }
+
+  .images-and-arrows-container {
+    @include dimension(100%, 100%);
+
+    position: relative;
+
+    .left-arrow, .right-arrow {
+      @include dimension(100px, 110px);
+      background-color: #0a7aba;
+      border-radius: 100%;
+
+      i {
+        @include position(absolute, calc(50% - 11px))
+      }
+    }
+
+    .left-arrow {
+      @include position(absolute, calc(50% - 55px), null, null, -20px, 1);
+
+      i {
+        left: 2px;
+      }
+    }
+
+    .right-arrow {
+      @include position(absolute, calc(50% - 55px), -22px, null, null, 1);
+
+      i {
+        right: 2px;
+      }
+    }
+
+    .images-container {
+      @include dimension(100%, 100%);
+      @include flex(space-around, center);
+      @include position(relative, null, null, null, null, 2);
+      background-color: $color92;
+      border-radius: 10px;
+      border: 1px solid $rollingStone;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      overflow-x: visible;
+      overflow-y: auto;
+
+      .image-wrapper img {
+        @include dimension(100%, 100%);
+        background: url("/assets/image-not-found.png");
+        background-size: cover;
+        border-radius: 10px;
+        text-indent: -1000px;
+      }
+    }
+  }
+}
+
+.gallery-component.items-per-page-5 .image-wrapper {
+  @include dimension(30%, 30%);
+}
+
+.gallery-component.items-per-page-10 .image-wrapper, .gallery-component.items-per-page-15 .image-wrapper {
+  @include dimension(23%, 23%);
+}
+
+.gallery-component.items-per-page-20 .image-wrapper {
+  @include dimension(19%, 19%);
+}

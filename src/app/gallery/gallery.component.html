@@ -1,0 +1,37 @@
+<div class="gallery-component" [ngClass]="'items-per-page-' + itemsPerPage">
+
+  <div class="gallery-controls">
+    <mat-form-field>
+      <mat-select [(ngModel)]="itemsPerPage" (selectionChange)="onItemsPerPageChange($event.value)" >
+        <mat-option *ngFor="let num of numOfPages" [value]="num">{{num}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Favorite food</mat-label>
+      <input matInput placeholder="search image" [(ngModel)]="searchValue">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Sort</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let option of sortOptions" [value]="option">{{option}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="images-and-arrows-container">
+    <div class="left-arrow cursor-pointer">
+      <i class="fa fa-chevron-left" style="font-size:24px"></i>
+    </div>
+    <div class="right-arrow cursor-pointer">
+      <i class="fa fa-chevron-right" style="font-size:24px"></i>
+    </div>
+
+    <div class="images-container">
+      <div class="image-wrapper" *ngFor="let image of images">
+        <img [src]="image.url"/>
+      </div>
+    </div>
+  </div>
+</div>
