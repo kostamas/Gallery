@@ -1,0 +1,37 @@
+[debug] [2020-02-21T20:28:24.346Z] ----------------------------------------------------------------------
+[debug] [2020-02-21T20:28:24.348Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\kosta\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2020-02-21T20:28:24.349Z] CLI Version:   7.12.1
+[debug] [2020-02-21T20:28:24.349Z] Platform:      win32
+[debug] [2020-02-21T20:28:24.349Z] Node Version:  v10.15.1
+[debug] [2020-02-21T20:28:24.362Z] Time:          Fri Feb 21 2020 22:28:24 GMT+0200 (Israel Standard Time)
+[debug] [2020-02-21T20:28:24.362Z] ----------------------------------------------------------------------
+[debug] [2020-02-21T20:28:24.362Z] 
+[debug] [2020-02-21T20:28:24.374Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-02-21T20:28:24.375Z] > authorizing via signed-in user
+[debug] [2020-02-21T20:28:24.375Z] [iam] checking project my-gallery-bc10a for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2020-02-21T20:28:24.377Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-02-21T20:28:24.377Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-02-21T20:28:24.786Z] <<< HTTP RESPONSE 200
+[debug] [2020-02-21T20:28:24.796Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/my-gallery-bc10a:testIamPermissions  
+
+[debug] [2020-02-21T20:28:25.844Z] <<< HTTP RESPONSE 200
+[debug] [2020-02-21T20:28:25.845Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/my-gallery-bc10a  
+ 
+[debug] [2020-02-21T20:28:26.402Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'my-gallery-bc10a'...
+[info] 
+[info] i  deploying hosting
+[debug] [2020-02-21T20:28:26.408Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/my-gallery-bc10a/versions  
+
+[debug] [2020-02-21T20:28:28.124Z] <<< HTTP RESPONSE 200
+[info] i  hosting[my-gallery-bc10a]: beginning deploy...
+[info] i  hosting[my-gallery-bc10a]: found 12 files in public
+[debug] [2020-02-21T20:28:28.211Z] [hosting] hash cache [cHVibGlj] stored for 12 files
+[debug] [2020-02-21T20:28:28.211Z] [hosting][hash queue][FINAL]
+[debug] [2020-02-21T20:28:28.211Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/my-gallery-bc10a/versions/1add5867217c5d29:populateFiles  
+ <request body omitted>
+[debug] [2020-02-21T20:28:29.872Z] <<< HTTP RESPONSE 200
+[debug] [2020-02-21T20:28:29.889Z] [hosting][populate queue][FINAL]
+[debug] [2020-02-21T20:28:29.890Z] [hosting] uploads queued: 5

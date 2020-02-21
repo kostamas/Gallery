@@ -2,7 +2,7 @@
 @import "../../colors";
 
 .gallery-component {
-  @include dimension(100%, 100%);
+  @include dimension(100%, calc(100% + 65px));
 
   .gallery-controls {
     @include flex(space-between);
@@ -13,22 +13,22 @@
   }
 
   .images-and-arrows-container {
-    @include dimension(100%, 100%);
-
+    @include dimension(100%, calc(100% - 65px));
     position: relative;
 
     .left-arrow, .right-arrow {
       @include dimension(100px, 110px);
-      background-color: #0a7aba;
       border-radius: 100%;
+      background-color: $color93;
 
       i {
-        @include position(absolute, calc(50% - 11px))
+        @include position(absolute, calc(50% - 11px));
+        color: white;
       }
     }
 
     .left-arrow {
-      @include position(absolute, calc(50% - 55px), null, null, -20px, 1);
+      @include position(absolute, calc(50% - 55px), null, null, -22px, 1);
 
       i {
         left: 2px;
@@ -36,7 +36,7 @@
     }
 
     .right-arrow {
-      @include position(absolute, calc(50% - 55px), -22px, null, null, 1);
+      @include position(absolute, calc(50% - 55px), -24px, null, null, 1);
 
       i {
         right: 2px;
@@ -47,7 +47,7 @@
       @include dimension(100%, 100%);
       @include flex(space-around, center);
       @include position(relative, null, null, null, null, 2);
-      background-color: $color92;
+      background-image: linear-gradient(rgb(66, 69, 70) 0%, rgb(75, 75, 115) 40%, rgb(61, 48, 39) 150%), linear-gradient(to top, rgba(190, 190, 190, 0.4) 0%, rgba(0, 0, 0, 0.25) 200%);
       border-radius: 10px;
       border: 1px solid $rollingStone;
       margin: 0 auto;
@@ -55,12 +55,30 @@
       overflow-x: visible;
       overflow-y: auto;
 
-      .image-wrapper img {
-        @include dimension(100%, 100%);
-        background: url("/assets/image-not-found.png");
-        background-size: cover;
-        border-radius: 10px;
-        text-indent: -1000px;
+      .title, .date {
+        @include text-overflow-ellipsis();
+        @include text-style(14px, white);
+        @include user-select(none);
+      }
+
+      .image-wrapper {
+        position: relative;
+        .delete-icon {
+          @include position(absolute, null, 5px, 5px);
+          @include dimension(15px, 15px);
+          @include user-select(none);
+        }
+
+        .feed-image {
+          @include dimension(100%, 100%);
+          @include user-select(none);
+          border: 1px solid $rollingStone;
+          background: url("/assets/image-not-found.png");
+          background-size: cover;
+          border-radius: 10px;
+          text-indent: -1000px;
+          cursor: pointer;
+        }
       }
     }
   }
@@ -76,4 +94,10 @@
 
 .gallery-component.items-per-page-20 .image-wrapper {
   @include dimension(19%, 19%);
+}
+
+.gallery-component.items-per-page-10, .gallery-component.items-per-page-15, .gallery-component.items-per-page-20 {
+  .images-container.has-top-text .image-wrapper .feed-image {
+    height: calc(100% - 20px);
+  }
 }

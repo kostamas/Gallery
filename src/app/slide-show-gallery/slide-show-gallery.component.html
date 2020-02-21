@@ -3,7 +3,7 @@
     <div *ngFor="let expImg of expandedImages">
       <div class="expanded-img-wrapper"
            [ngStyle]="expImg.style">
-        <img [src]="expImg.src"/>
+        <img [src]="expImg.src" onerror="this.src='/assets/image-not-found.png';"/>
       </div>
     </div>
     <div class="left-sign" (click)=expandedImageClickHandler(-1)>
@@ -18,7 +18,7 @@
     <div #slider class="slider" [ngStyle]="sliderStyle">
       <div *ngFor="let imgPath of imagesPaths; let i = index">
         <div [ngClass]="i === selectedIndex ? 'img-wrapper selected-img' : 'img-wrapper'">
-          <img (click)="imgClickHandler(i)" [src]="imgPath"/>
+          <img (click)="imgClickHandler(i)" [src]="imgPath" onerror="this.src='/assets/image-not-found.png';"/>
         </div>
       </div>
     </div>

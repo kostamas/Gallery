@@ -1,7 +1,16 @@
 <div class="app-component">
-  <h1 class="title">My Gallery</h1>
+
+  <div class="gallery-configuration">
+    <mat-form-field class="transition-config">
+      <mat-label>Transition (milliseconds)</mat-label>
+      <input matInput placeholder="search image" (keypress)="isNumber($event)" [(ngModel)]="transition">
+    </mat-form-field>
+    <mat-checkbox class="hide-search-checkbox" [(ngModel)]="search">Search</mat-checkbox>
+    <mat-checkbox class="hide-search-checkbox" [(ngModel)]="sort">Sort</mat-checkbox>
+  </div>
+
 
   <div class="gallery-wrapper">
-    <app-gallery [feed]="feed"></app-gallery>
+    <app-gallery [search]="search" [feed]="feed" [sort]="sort" [transition]="transition"></app-gallery>
   </div>
 </div>

@@ -1,13 +1,34 @@
 @import "../mixins";
 
 .app-component {
-  .title {
-    text-align: center;
-    margin: 30px 0;
-  }
+  padding-top: 40px;
 
   .gallery-wrapper {
-    @include dimension(500px, 500px);
+    @include dimension(700px, 600px);
     margin: 0 auto;
+  }
+
+  .gallery-configuration {
+    @include position(absolute, 20px, null, null, 20px);
+
+    mat-checkbox {
+      display: block;
+    }
+
+    .transition-config {
+      font-size: 13px;
+      width: 160px;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .app-component {
+    padding-top: 140px;
+
+    .gallery-wrapper {
+      @include dimension(320px, 320px);
+      margin: 0 auto;
+    }
   }
 }

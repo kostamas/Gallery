@@ -7,10 +7,19 @@ import {feed} from './feed';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'gallery';
-  feed = feed;
+  public feed = feed;
+  public search = true;
+  public sort = true;
+  public transition = '';
 
   ngOnInit(): void {
+  }
 
+  isNumber($event: KeyboardEvent) {
+    const charCode = $event.which ? $event.which : $event.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      return false;
+    }
+    return true;
   }
 }

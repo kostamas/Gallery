@@ -1,8 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import "colors";
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-image: linear-gradient(-225deg, rgb(227, 253, 245) 0%, rgb(255, 230, 250) 100%);
+
+  .scrollbar-style {
+    &::-webkit-scrollbar {
+      height: 20px;
+      width: 7px;
+      background-color: $rollingStone;
+      border-radius: 100px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $rollingStone;
+      -webkit-border-radius: 1ex;
+
+    }
+  }
+
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.hover-opacity {
+  opacity: 0.8;
+}
